@@ -80,7 +80,7 @@ $ ->
         if (script.type.match(/display/))
           tex = "$$ "+ tex +" $$"
         else
-          tex = "$"+ tex +"$"
+          tex = "$ "+ tex +" $"
 
         jax[i].Remove()
 
