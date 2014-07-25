@@ -1,23 +1,23 @@
 {
-	"name": "Latex for Facebook",
-	"description": "Equations in Facebook. LaTeX formulas in posts, comments and messages.",
-	"short_name": "Latex4Facebook",
+  "name": "Latex for Facebook",
+  "description": "Equations in Facebook. LaTeX formulas in posts, comments and messages.",
+  "short_name": "Latex4Facebook",
 
-	"version": "0.0.1",
+  "version": "0.0.1",
   "homepage_url": "https://gist.github.com/gmunkhbaatarmn/8630182",
 
   "background": {
     "scripts": ["background.js"],
     "persistent": true
   },
-	"content_scripts": [{
-		"all_frames": true,
-		"js": ["jquery.js", "app.js"],
-		"matches": ["http://*.facebook.com/*", "https://*.facebook.com/*"],
-		"run_at": "document_start"
-	}],
-	"permissions": ["webRequest", "webRequestBlocking", "http://*.facebook.com/*", "https://*.facebook.com/*"],
+  "content_scripts": [{
+    "all_frames": true,
+    "js": ["jquery.js", "app.js"],
+    "matches": ["http://*.facebook.com/*", "https://*.facebook.com/*"],
+    "run_at": "document_start"
+  }],
+  "permissions": ["webRequest", "webRequestBlocking", "http://*.facebook.com/*", "https://*.facebook.com/*"],
 
-	"icons": {"16": "icon-16.png", "48": "icon-48.png", "128": "icon.png"},
-	"manifest_version": 2
+  "icons": {"16": "icon-16.png", "48": "icon-48.png", "128": "icon.png"},
+  "manifest_version": 2
 }
