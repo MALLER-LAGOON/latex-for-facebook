@@ -7,20 +7,64 @@ $ ->
   head = document.getElementsByTagName("head")[0]
   script = document.createElement("script")
   script.type = "text/x-mathjax-config"
-  script[(if window.opera then "innerHTML" else "text")] = """
+  script.text = """
     MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [["$", "$"]],
-        displayMath: [["$$", "$$"]]
-      }, showMathMenu: false
+        displayMath: [["$$", "$$"]],
+        processClass: "userContent"
+      },
+      jax: ["input/TeX", "output/SVG"],
+      showMathMenu: false
     });
 
     var MathQueue = null
 
     var MathEnable = function() {
       MathQueue = setInterval(function() {
+        var _userContent, _wbr, _all_span, _span;
+        // wbr remove
+        _userContent = document.getElementsByClassName("userContent")
+        for (var i = 0, ii = _userContent.length; i < ii; i++) {
+          _wbr = _userContent[i].getElementsByTagName("wbr")
+          for (var j = 0, jj = _wbr.length; j < jj; j++) {
+            _wbr[j].remove()
+          }
+        }
+
+        // span.word_break remove
+        _userContent = document.getElementsByClassName("userContent")
+        for (var i = 0, ii = _userContent.length; i < ii; i++) {
+          _wbr = _userContent[i].getElementsByClassName("word_break")
+          for (var j = 0, jj = _wbr.length; j < jj; j++) {
+            _wbr[j].remove()
+          }
+        }
+
+        // span tag unwrap
+        _userContent = document.getElementsByClassName("userContent")
+        for (var i = 0, ii = _userContent.length; i < ii; i++) {
+          _all_span = _userContent[i].getElementsByTagName("span")
+          _span = []
+          for (var j = 0, jj = _all_span.length; j < jj; j++) {
+            if (! _all_span[j].getAttribute("class"))
+              _span.push(_all_span[j])
+          }
+
+          while (_span.length) {
+            var _parent = _span[0].parentNode
+            if (_span[0].firstChild) {
+              _parent.insertBefore(_span[0].firstChild, _span[0])
+            }
+            if (_parent) {
+              _parent.removeChild(_span[0])
+            } else { break }
+          }
+        }
+
         MathJax.Hub.queue.pending = 0
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+        MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
       }, 2000)
     }
 
@@ -81,5 +125,5 @@ $ ->
   head.appendChild(script)
   script = document.createElement("script")
   script.type = "text/javascript"
-  script.src  = "https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"
+  script.src = "//cdn.mathjax.org/mathjax/latest/unpacked/MathJax.js?config=TeX-AMS-MML_SVG"
   head.appendChild(script)
