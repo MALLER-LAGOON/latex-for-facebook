@@ -1,6 +1,14 @@
 # Latex for Facebook
 Equations, formulas in Facebook. Very easy to use.
 
+### Announcement
+**tl;dr**: Looking for new maintainer. Contact me `gmunkhbaatarmn@gmail.com`
+
+In beginning I made this for my friend. But surprisingly many people uses this.
+Now I don't have enough time for this extension. If you want to maintain this
+extension and like to develop this extension I like to give you this extension's
+full access.
+
 ### How to use
 Simply write `$` to before and after your LaTeX code.
 
