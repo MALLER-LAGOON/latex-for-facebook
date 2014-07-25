@@ -3,7 +3,7 @@
   "description": "Equations in Facebook. LaTeX formulas in posts, comments and messages.",
   "short_name": "Latex4Facebook",
 
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage_url": "https://github.com/gmunkhbaatarmn/latex-for-facebook",
 
   "background": {
