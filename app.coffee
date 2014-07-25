@@ -10,13 +10,15 @@ $ ->
   script.text = """
     MathJax.Hub.Config({
       tex2jax: {
-        inlineMath: [["$", "$"]],
-        displayMath: [["$$", "$$"]],
+        inlineMath: [["$ ", " $"]],
+        displayMath: [["$$ ", " $$"]],
         processClass: "userContent"
       },
       jax: ["input/TeX", "output/SVG"],
       showMathMenu: false
     });
+
+    MathJax.Hub.setRenderer("SVG")
 
     var MathQueue = null
 
@@ -62,9 +64,8 @@ $ ->
           }
         }
 
-        MathJax.Hub.queue.pending = 0
-        MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"]);
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        MathJax.Hub.Queue(["setRenderer", MathJax.Hub, "SVG"])
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub])
       }, 2000)
     }
 
