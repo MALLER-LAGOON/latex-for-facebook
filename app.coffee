@@ -11,8 +11,7 @@ $ ->
     MathJax.Hub.Config({
       tex2jax: {
         inlineMath: [["$ ", " $"]],
-        displayMath: [["$$ ", " $$"]],
-        processClass: "userContent"
+        displayMath: [["$$ ", " $$"]]
       },
       jax: ["input/TeX", "output/SVG"],
       showMathMenu: false
