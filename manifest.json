@@ -4,7 +4,7 @@
   "short_name": "Latex4Facebook",
 
   "version": "0.0.1",
-  "homepage_url": "https://gist.github.com/gmunkhbaatarmn/8630182",
+  "homepage_url": "https://github.com/gmunkhbaatarmn/latex-for-facebook",
 
   "background": {
     "scripts": ["background.js"],
